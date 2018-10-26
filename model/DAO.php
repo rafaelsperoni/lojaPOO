@@ -6,7 +6,7 @@
  * Time: 19:27
  */
 
-require_once "config/Database.php";
+require_once "../config/Database.php";
 
 class DAO
 {

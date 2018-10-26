@@ -10,8 +10,8 @@ class Database
 {
     const HOST = 'localhost';
     const DATABASE = 'loja';
-    const USER = 'root';
-    const PASSWORD = '';
+    const USER = 'loja';
+    const PASSWORD = 'loja';
 
     public static $conexao;
 

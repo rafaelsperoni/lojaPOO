@@ -19,7 +19,7 @@
         echo '<tr>';
         echo '<td>'.$categoria->getId().'</td>';
         echo '<td><a href="index.php?acao=detalhes&id='.$categoria->getId().'">'.utf8_encode($categoria->getNome()).'</a></td>';
-        echo '<td>'.$categoria->getDescricao().'</td>';
+        echo '<td>'.utf8_encode($categoria->getDescricao()).'</td>';
         echo '</tr>';
     }
 ?>
