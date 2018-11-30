@@ -18,6 +18,7 @@ class CategoriaDAO extends DAO
         try{
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
+//            $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $categorias = $stmt->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Categoria', ['nome', 'descricao', 'id']);
 
             return $categorias;
@@ -49,12 +50,26 @@ class CategoriaDAO extends DAO
        $desc = $categoria->getDescricao();
        $stmt->bindParam(':nome', $nome);
        $stmt->bindParam(':descricao', $desc);
-       if ( $stmt->execute()){
+       try{
+           $stmt->execute();
            return true;
-       }else{
-           return false;
-       }
+        }catch(PDOException $e){
+            throw $e;
+            return false;
+        }
 
+    }
+    public function delete($id){
+        $sql = "delete from categoria where id=:valorid";
+        try{
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindParam(':valorid', $id);
+            $stmt->execute();
+
+        }catch (PDOException $e){
+
+            throw new PDOException($e);
+        }
     }
 
     

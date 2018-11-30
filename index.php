@@ -35,6 +35,31 @@ switch ($acao){
         $cat = new CategoriaController();
         $cat->inserir($categoriaNova);
         exit;
+    case 'atualizar':
+        //mostrar o form preenchido
+        //pega o ID enviado
+        $id = $_GET['id'];
+        //instancia o controlador
+        $cat = new CategoriaController();
+        //chama o método
+        $cat->atualizar($id);
+        exit;
+    case 'gravaAtualizar':
+        //pegar dados do POST
+        $categoriaNova = new Categoria();
+        $categoriaNova->setId($_POST['id']);
+        $categoriaNova->setNome($_POST['nome']);
+        $categoriaNova->setDescricao($_POST['descricao']);
+        $cat = new CategoriaController();
+        $cat->gravaAtualizar($categoriaNova);
+        exit;
+    case 'excluir':
+        $id = $_GET['id'];
+        $cat = new CategoriaController();
+        //chama o método
+        $cat->excluir($id);
+
+        exit;
     default:
         echo "Ação inválida";
 
