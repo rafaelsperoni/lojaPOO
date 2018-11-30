@@ -59,6 +59,28 @@ class CategoriaDAO extends DAO
         }
 
     }
+    public function update($categoria){
+        //RECEBE UM OBJETO DO TIPO CATEGORIA E
+        //INSERE SEUS DADOS NO BANCO
+        $sql = "update categoria set nome=:nome, descricao=:descricao where id=:id";
+        $stmt = $this->conexao->prepare($sql);
+        $id = $categoria->getId();
+        $nome = $categoria->getNome();
+        $desc = $categoria->getDescricao();
+
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':descricao', $desc);
+        try{
+            $stmt->execute();
+            return true;
+        }catch(PDOException $e){
+            throw $e;
+            return false;
+        }
+
+    }
+
     public function delete($id){
         $sql = "delete from categoria where id=:valorid";
         try{

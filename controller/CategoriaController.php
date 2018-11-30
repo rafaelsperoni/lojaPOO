@@ -76,7 +76,7 @@ class CategoriaController
         View::carregar('view/template/rodape.html');
 
     }
-    public function gravaAlterar($categoria){
+    public function gravaAtualizar($categoria){
         $catdao = new CategoriaDAO();
         try{
             $catdao->update($categoria);
