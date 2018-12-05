@@ -10,7 +10,7 @@ $dao = new CategoriaDAO();
 // faz a consulta e guarda o array com os dados em $categorias
 $resultadocats = $dao->selectAll();
 
-print_r($resultadocats);
+//print_r($resultadocats);
 /*
  * como o array retornado contem objetos, e estes objetos têm atributos privados, precisamos percorrê-los
  * para usar os métodos getId(), getNome() e getDescricao().
@@ -22,5 +22,5 @@ foreach ($resultadocats as $itemcat){
     $categorias[] = $categoria;
 }
 
-print_r($categorias);
+//print_r($categorias);
 echo json_encode($categorias);
