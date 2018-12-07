@@ -2,6 +2,7 @@
 //altera o cabecalho HTTP para dizer que o conteúdo é JSON
 header('Content-type:application/json');
 
+header("Access-Control-Allow-Origin: *");
 //vai usar o CategoriaDAO.php
 require_once "../../model/CategoriaDAO.php";
 
